@@ -79,8 +79,6 @@
 #include "simpbms.h"
 #include "leafbms.h"
 #include "daisychainbms.h"
-#include "batman.h"
-#include "BMSUtil.h"
 #include "outlanderCharger.h"
 #include "Can_OBD2.h"
 #include "dcdc.h"
@@ -88,6 +86,7 @@
 #include "BMW_E31.h"
 #include "shifter.h"
 #include "digipot.h"
+#include "spiadc.h"
 #include "F30_Lever.h"
 //#include "E65_Lever.h"
 #include "JLR_G1.h"
@@ -224,8 +223,10 @@ static void Ms200Task(void)
     Param::SetInt(Param::Min,minutes);
     Param::SetInt(Param::Sec,seconds);
     Param::SetInt(Param::ChgT,ChgDur_tmp);
-	DigiPot::SetPot1Step();
-	DigiPot::SetPot2Step();
+	//DigiPot::SetPot1Step();
+	//DigiPot::SetPot2Step();
+	SpiADC::Read6Channels();
+	
 	if(ChgSet==2 && !ChgLck)  //if in timer mode and not locked out from a previous full charge.
     {
         if(opmode!=MOD_CHARGE)
@@ -1340,7 +1341,7 @@ extern "C" int main(void)
     nvic_setup();
     parm_load();
     spi2_setup();
-    spi3_setup();
+	spi3_setup();
     tim3_setup(); //For general purpose PWM output
     Param::Change(Param::PARAM_LAST);
     DigIo::INV_PWR.Clear();//inverter power off during bootup

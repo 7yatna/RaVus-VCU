@@ -1,8 +1,7 @@
 /*
+ * This file is part of the ZombieVerter project.
  *
- * Copyright (C) 2023 Tom de Bree
- *                      Damien Maguire <info@evbmw.com>
- * Yes I'm really writing software now........run.....run away.......
+ * Copyright (C) 2023 Damien Maguire
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,25 +16,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef BMSUtil_h
-#define BMSUtil_h
-#include "my_math.h"
-#include <stdint.h>
-#include "my_fp.h"
+
+#ifndef SPIADC_H
+#define SPIADC_H
 #include "params.h"
+#include "digio.h"
+#include <libopencm3/stm32/spi.h>
 
-
-class BMSUtil
+namespace SpiADC
 {
-public:
-    static void UpdateSOC();
-    static  int EstimateSocFromVoltage();
+    void Read6Channels();
+    
+}
+#endif // SPIADC_H
 
-private:
-
-
-
-protected:
-};
-
-#endif

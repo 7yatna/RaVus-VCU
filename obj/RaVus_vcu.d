@@ -61,15 +61,15 @@ obj/RaVus_vcu.o: src/RaVus_vcu.cpp \
  include/notused.h include/nocharger.h include/extCharger.h \
  include/amperacharger.h include/noHeater.h include/bms.h \
  include/simpbms.h include/bms.h include/leafbms.h \
- include/daisychainbms.h include/batman.h include/BMSUtil.h \
- include/outlanderCharger.h include/hwinit.h include/Can_OBD2.h \
- include/dcdc.h include/TeslaDCDC.h include/dcdc.h include/BMW_E31.h \
- include/shifter.h include/digipot.h include/F30_Lever.h include/JLR_G1.h \
- include/JLR_G2.h include/no_Lever.h include/CPC.h include/Foccci.h \
- include/NoInverter.h libopeninv/include/linbus.h include/VWheater.h \
- include/ElconCharger.h include/rearoutlanderinverter.h \
- include/NoVehicle.h include/V_Classic.h include/kangoobms.h \
- include/OutlanderCanHeater.h include/OutlanderHeartBeat.h
+ include/daisychainbms.h include/outlanderCharger.h include/hwinit.h \
+ include/Can_OBD2.h include/dcdc.h include/TeslaDCDC.h include/dcdc.h \
+ include/BMW_E31.h include/shifter.h include/digipot.h include/spiadc.h \
+ include/F30_Lever.h include/JLR_G1.h include/JLR_G2.h include/no_Lever.h \
+ include/CPC.h include/Foccci.h include/NoInverter.h \
+ libopeninv/include/linbus.h include/VWheater.h include/ElconCharger.h \
+ include/rearoutlanderinverter.h include/NoVehicle.h include/V_Classic.h \
+ include/kangoobms.h include/OutlanderCanHeater.h \
+ include/OutlanderHeartBeat.h
 libopencm3/include/libopencm3/stm32/usart.h:
 libopencm3/include/libopencm3/cm3/common.h:
 libopencm3/include/libopencm3/stm32/memorymap.h:
@@ -175,8 +175,6 @@ include/simpbms.h:
 include/bms.h:
 include/leafbms.h:
 include/daisychainbms.h:
-include/batman.h:
-include/BMSUtil.h:
 include/outlanderCharger.h:
 include/hwinit.h:
 include/Can_OBD2.h:
@@ -186,6 +184,7 @@ include/dcdc.h:
 include/BMW_E31.h:
 include/shifter.h:
 include/digipot.h:
+include/spiadc.h:
 include/F30_Lever.h:
 include/JLR_G1.h:
 include/JLR_G2.h:
