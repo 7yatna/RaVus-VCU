@@ -38,7 +38,8 @@ void tim_setup(void);
 void tim2_setup(void);
 void tim3_setup(void);
 void spi2_setup(void);
-void spi3_setup(void);
+void ADC_spi3_setup(void);
+void DigiPot_spi3_setup(void);
 
 #ifdef __cplusplus
 }

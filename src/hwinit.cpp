@@ -90,7 +90,7 @@ void spi2_setup()   //spi 2 used for CAN3
     spi_enable(SPI2);
 }
 
-void spi3_setup()   //spi3 used for digi pots (fuel gauge etc)
+void DigiPot_spi3_setup()   //spi3 used for digi pots (fuel gauge etc)
 {
 	gpio_primary_remap(AFIO_MAPR_SWJ_CFG_JTAG_OFF_SW_ON, AFIO_MAPR_SPI3_REMAP);
 	gpio_set_mode(GPIOC, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_ALTFN_PUSHPULL, GPIO12 | GPIO10);//MOSI , CLK
@@ -102,6 +102,17 @@ void spi3_setup()   //spi3 used for digi pots (fuel gauge etc)
     spi_enable(SPI3);
 }
 
+					
+void ADC_spi3_setup()   //spi3 used for SPI ADC
+{
+	gpio_primary_remap(AFIO_MAPR_SWJ_CFG_JTAG_OFF_SW_ON, AFIO_MAPR_SPI3_REMAP);
+	gpio_set_mode(GPIOC, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_ALTFN_PUSHPULL, GPIO12 | GPIO10);//MOSI , CLK
+    gpio_set_mode(GPIOC, GPIO_MODE_INPUT, GPIO_CNF_INPUT_FLOAT, GPIO11);//MISO
+    spi_init_master(SPI3, SPI_CR1_BAUDRATE_FPCLK_DIV_16, SPI_CR1_CPOL_CLK_TO_0_WHEN_IDLE, SPI_CR1_CPHA_CLK_TRANSITION_2, SPI_CR1_DFF_16BIT, SPI_CR1_MSBFIRST);
+    spi_enable_software_slave_management(SPI3);
+    spi_set_nss_high(SPI3);
+    spi_enable(SPI3);
+}
 
 /**
 * Setup USART1 for LINbus

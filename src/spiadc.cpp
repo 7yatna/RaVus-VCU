@@ -22,25 +22,26 @@
 #include "spiadc.h"
 #include "utils.h"
 
+
 void SpiADC::Read6Channels() 
 {
 	
 	uint16_t Raw[6];
 	uint16_t Val[6];
 	
+	
 	DigIo::ADC_CS.Set();
 	for (volatile int i = 0; i < 3; i++)
     {
         __asm__("nop");
     }
-	spi_init_master(SPI3, SPI_CR1_BAUDRATE_FPCLK_DIV_16, SPI_CR1_CPOL_CLK_TO_0_WHEN_IDLE,
-                    SPI_CR1_CPHA_CLK_TRANSITION_2, SPI_CR1_DFF_16BIT, SPI_CR1_MSBFIRST);
+	
 	DigIo::ADC_CS.Clear();
-	spi_send(SPI3, 0x0000);
+	
 	for (int i = 0; i < 6; i++) 
 	{	
 		Raw[i] = spi_xfer(SPI3, 0x0000);
-		Val[i] = (Raw[i] >> 2) & 0x3FFF;
+		Val[i] = Raw[i] & 0x3FFF;
     }
 		
 	Param::SetInt(Param::CH1, Val[0]);

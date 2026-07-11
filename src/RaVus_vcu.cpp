@@ -223,6 +223,7 @@ static void Ms200Task(void)
     Param::SetInt(Param::Min,minutes);
     Param::SetInt(Param::Sec,seconds);
     Param::SetInt(Param::ChgT,ChgDur_tmp);
+
 	DigiPot::SetPot1AStep();
 	DigiPot::SetPot1BStep();
 	DigiPot::SetPot2AStep();
@@ -620,6 +621,8 @@ static void Ms10Task(void)
     ErrorMessage::SetTime(rtc_get_counter_val());
 
     selectedChargeInt->Task10Ms();
+	//ADC_spi3_setup();
+	//SpiADC::Read6Channels();
 	
 	
 
@@ -853,7 +856,6 @@ static void Ms1Task(void)
     selectedChargeInt->Task1Ms();
     selectedShifter->Task1Ms();
     selectedDCDC->Task1Ms();
-	//SpiADC::Read6Channels();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1350,7 +1352,8 @@ extern "C" int main(void)
     nvic_setup();
     parm_load();
     spi2_setup();
-	spi3_setup();
+	DigiPot_spi3_setup();
+	//ADC_spi3_setup();
     tim3_setup(); //For general purpose PWM output
     Param::Change(Param::PARAM_LAST);
     DigIo::INV_PWR.Clear();//inverter power off during bootup
