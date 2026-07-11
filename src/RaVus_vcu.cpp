@@ -223,9 +223,15 @@ static void Ms200Task(void)
     Param::SetInt(Param::Min,minutes);
     Param::SetInt(Param::Sec,seconds);
     Param::SetInt(Param::ChgT,ChgDur_tmp);
-	//DigiPot::SetPot1Step();
-	//DigiPot::SetPot2Step();
-	SpiADC::Read6Channels();
+	DigiPot::SetPot1AStep();
+	DigiPot::SetPot1BStep();
+	DigiPot::SetPot2AStep();
+	DigiPot::SetPot2BStep();
+	DigiPot::SetPot3AStep();
+	DigiPot::SetPot3BStep();
+	DigiPot::SetPot4AStep();
+	DigiPot::SetPot4BStep();
+	
 	
 	if(ChgSet==2 && !ChgLck)  //if in timer mode and not locked out from a previous full charge.
     {
@@ -614,6 +620,8 @@ static void Ms10Task(void)
     ErrorMessage::SetTime(rtc_get_counter_val());
 
     selectedChargeInt->Task10Ms();
+	
+	
 
     if (Param::GetInt(Param::opmode) == MOD_RUN) //!!!THROTTLE CODE HERE//
     {
@@ -845,6 +853,7 @@ static void Ms1Task(void)
     selectedChargeInt->Task1Ms();
     selectedShifter->Task1Ms();
     selectedDCDC->Task1Ms();
+	//SpiADC::Read6Channels();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1406,6 +1415,11 @@ extern "C" int main(void)
 
     Param::SetInt(Param::version, 4); //backward compatibility
     Param::SetInt(Param::opmode, MOD_OFF);//always off at startup
+	DigIo::ADC_CS.Clear();
+	DigIo::POT1_CS.Clear();
+	DigIo::POT2_CS.Clear();
+	DigIo::POT3_CS.Clear();
+	DigIo::POT4_CS.Clear();
 
     while(1)
     {

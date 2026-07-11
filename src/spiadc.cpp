@@ -24,40 +24,30 @@
 
 void SpiADC::Read6Channels() 
 {
-	uint16_t Dummy = 0x0000;
+	
 	uint16_t Raw[6];
-	int16_t Val[6];
-	
-	
-	DigIo::ADC_CS.Clear();
-	DigIo::ADC_CS.Set();
-	DigIo::ADC_CS.Clear();
-	
-	for (int i = 0; i < 6; i++) 
-	{
-		Raw[i] = spi_xfer(SPI3, Dummy);
-        //Raw[i] = spi_read(SPI3);
-    }
-	
-	for (int i = 0; i < 6; i++) 
-	{
-		int16_t tmp = (Raw[i] >> 2) & 0x3FFF;
-		 
-		 if (tmp & 0x2000) 
-		 {
-            tmp |= 0xC000;
-		 }
-	
-		Val[i] = tmp;
-    }
+	uint16_t Val[6];
 	
 	DigIo::ADC_CS.Set();
-	
-	Param::SetInt(Param::pot, Val[0]);
-	Param::SetInt(Param::pot2, Val[1]);
-	Param::SetInt(Param::potbrake, Val[2]);
-	Param::SetInt(Param::brakepressure, Val[3]);
-	
-    
+	for (volatile int i = 0; i < 3; i++)
+    {
+        __asm__("nop");
+    }
+	spi_init_master(SPI3, SPI_CR1_BAUDRATE_FPCLK_DIV_16, SPI_CR1_CPOL_CLK_TO_0_WHEN_IDLE,
+                    SPI_CR1_CPHA_CLK_TRANSITION_2, SPI_CR1_DFF_16BIT, SPI_CR1_MSBFIRST);
+	DigIo::ADC_CS.Clear();
+	spi_send(SPI3, 0x0000);
+	for (int i = 0; i < 6; i++) 
+	{	
+		Raw[i] = spi_xfer(SPI3, 0x0000);
+		Val[i] = (Raw[i] >> 2) & 0x3FFF;
+    }
+		
+	Param::SetInt(Param::CH1, Val[0]);
+	Param::SetInt(Param::CH2, Val[1]);
+	Param::SetInt(Param::CH3, Val[2]);
+	Param::SetInt(Param::CH4, Val[3]);
+	Param::SetInt(Param::CH5, Val[4]);
+	Param::SetInt(Param::CH6, Val[5]);
 }
 

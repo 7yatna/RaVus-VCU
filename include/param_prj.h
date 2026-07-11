@@ -79,7 +79,7 @@
     PARAM_ENTRY(CAT_THROTTLE,  throtmin,     "%",      -100,    0,     -100,    26 ) \
     PARAM_ENTRY(CAT_THROTTLE,  throtmaxRev,  "%",       0,      100,    30,    123 ) \
     PARAM_ENTRY(CAT_THROTTLE,  throtdead,    "%",       0,      50,     10,     76 ) \
-    PARAM_ENTRY(CAT_THROTTLE,  RegenBrakeLight,   "%",    -100,     0,     -15,      128 ) \
+    PARAM_ENTRY(CAT_THROTTLE,  RegenBrakeLight,"%",    -100,    0,      -15,  128 ) \
     PARAM_ENTRY(CAT_THROTTLE,  throtrpmfilt,   "rpm/10ms",  0.1,    300,    15,    131 ) \
     PARAM_ENTRY(CAT_LEXUS,     Gear,        LOWHIGH,   0,      3,      0,      27 ) \
     PARAM_ENTRY(CAT_LEXUS,     OilPump,     "%",       0,      100,    50,     28 ) \
@@ -123,8 +123,16 @@
     PARAM_ENTRY(CAT_CLOCK,     Pre_Hrs,     "Hours",   0,      59,     0,      53 ) \
     PARAM_ENTRY(CAT_CLOCK,     Pre_Min,     "Mins",    0,      59,     0,      54 ) \
     PARAM_ENTRY(CAT_CLOCK,     Pre_Dur,     "Mins",    0,      60,     0,      55 ) \
-    PARAM_ENTRY(CAT_IOPINS,    PumpPWM,    PumpOutType,0,      1,      0,      135) \
-    PARAM_ENTRY(CAT_IOPINS,    Out1Func,    PINFUNCS,  0,      19,     6,      80 ) \
+    PARAM_ENTRY(CAT_IOPINS,    POT1A,    	"dig",	   0,      255,    127,      143) \
+	PARAM_ENTRY(CAT_IOPINS,    POT1B,    	"dig",	   0,      255,    127,      144) \
+	PARAM_ENTRY(CAT_IOPINS,    POT2A,    	"dig",	   0,      255,    127,      145) \
+	PARAM_ENTRY(CAT_IOPINS,    POT2B,    	"dig",	   0,      255,    127,      146) \
+	PARAM_ENTRY(CAT_IOPINS,    POT3A,    	"dig",	   0,      255,    127,      147) \
+	PARAM_ENTRY(CAT_IOPINS,    POT3B,    	"dig",	   0,      255,    127,      148) \
+	PARAM_ENTRY(CAT_IOPINS,    POT4A,    	"dig",	   0,      255,    127,      149) \
+	PARAM_ENTRY(CAT_IOPINS,    POT4B,    	"dig",	   0,      255,    127,      150) \
+    PARAM_ENTRY(CAT_IOPINS,    PumpPWM,     PINFUNCS,  0,      19,     6,      151 ) \
+	PARAM_ENTRY(CAT_IOPINS,    Out1Func,    PINFUNCS,  0,      19,     6,      80 ) \
     PARAM_ENTRY(CAT_IOPINS,    Out2Func,    PINFUNCS,  0,      19,     7,      81 ) \
     PARAM_ENTRY(CAT_IOPINS,    Out3Func,    PINFUNCS,  0,      19,     3,      82 ) \
     PARAM_ENTRY(CAT_IOPINS,    SL1Func,     PINFUNCS,  0,      19,     0,      83 ) \
@@ -185,7 +193,13 @@
     VALUE_ENTRY(speed,         "rpm",               2016 ) \
     VALUE_ENTRY(Veh_Speed,     "kph",               2017 ) \
     VALUE_ENTRY(torque,        "dig",               2018 ) \
-    VALUE_ENTRY(pot,           "dig",               2019 ) \
+	VALUE_ENTRY(CH1,           "dig",               2077 ) \
+    VALUE_ENTRY(CH2,           "dig",               2080 ) \
+	VALUE_ENTRY(CH3,           "dig",               2081 ) \
+    VALUE_ENTRY(CH4,           "dig",               2092 ) \
+	VALUE_ENTRY(CH5,           "dig",               2093 ) \
+    VALUE_ENTRY(CH6,           "dig",               2108 ) \
+	VALUE_ENTRY(pot,           "dig",               2019 ) \
     VALUE_ENTRY(pot2,          "dig",               2020 ) \
     VALUE_ENTRY(potbrake,      "dig",               2021 ) \
     VALUE_ENTRY(brakepressure, "dig",               2022 ) \
@@ -248,8 +262,14 @@
     VALUE_ENTRY(PPVal,         "dig",               2094 ) \
     VALUE_ENTRY(BrkVacVal,     "dig",               2095 ) \
 	VALUE_ENTRY(AC_PWMVal,     "dig",               2001 ) \
-	VALUE_ENTRY(DigiPot1Step,  "dig",               2072 ) \
-	VALUE_ENTRY(DigiPot2Step,  "dig",               2073 ) \
+	VALUE_ENTRY(DigiPot1A, 	   	"%",   				2110 )\
+	VALUE_ENTRY(DigiPot1B, 	   	"%",   				2111 )\
+	VALUE_ENTRY(DigiPot2A, 	   	"%",   				2112 )\
+	VALUE_ENTRY(DigiPot2B, 	   	"%",   				2113 )\
+	VALUE_ENTRY(DigiPot3A, 	   	"%",   				2114 )\
+	VALUE_ENTRY(DigiPot3B, 	   	"%",   				2115 )\
+	VALUE_ENTRY(DigiPot4A, 	   	"%",   				2116 )\
+	VALUE_ENTRY(DigiPot4B, 	   	"%",   				2117 )\
 	VALUE_ENTRY(G_PWM_Val,     "dig",               2027 ) \
     VALUE_ENTRY(tmpheater,     "°C",                2096 ) \
     VALUE_ENTRY(udcheater,     "V",                 2097 ) \
@@ -258,8 +278,6 @@
 	VALUE_ENTRY(AC_Comp_Req,   ONOFF,               2074 ) \
 
 
-
-//Next value Id: 2077,2080,2081,2092,2093,2107
 
 
 //Dead params

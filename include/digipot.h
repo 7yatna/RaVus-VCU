@@ -25,8 +25,14 @@
 
 namespace DigiPot
 {
-    void SetPot1Step();
-    void SetPot2Step();
+    void SetPot1AStep();
+	void SetPot1BStep();
+	void SetPot2AStep();
+	void SetPot2BStep();
+	void SetPot3AStep();
+	void SetPot3BStep();
+	void SetPot4AStep();
+	void SetPot4BStep();
 }
 #endif // DIGIPOT_H
 
