@@ -45,6 +45,7 @@
 #include "leafinv.h"
 #include "isa_shunt.h"
 #include "BMW_E39.h"
+#include "BatMan.h"
 //#include "BMW_E65.h"
 #include "BMW_E60.h"
 //#include "subaruvehicle.h"
@@ -232,6 +233,7 @@ static void Ms200Task(void)
 	DigiPot::SetPot3BStep();
 	DigiPot::SetPot4AStep();
 	DigiPot::SetPot4BStep();
+	
 	
 	
 	if(ChgSet==2 && !ChgLck)  //if in timer mode and not locked out from a previous full charge.
@@ -587,6 +589,8 @@ static void Ms100Task(void)
         IOMatrix::GetPin(IOMatrix::HVACTIVE)->Clear();//HV Active Off
     }
 	*/
+	
+	BATMan::loop();
 }
 /*
 static void ControlCabHeater(int opmode)
@@ -621,8 +625,7 @@ static void Ms10Task(void)
     ErrorMessage::SetTime(rtc_get_counter_val());
 
     selectedChargeInt->Task10Ms();
-	//ADC_spi3_setup();
-	//SpiADC::Read6Channels();
+	SpiADC::Read6Channels();
 	
 	
 
@@ -1352,8 +1355,7 @@ extern "C" int main(void)
     nvic_setup();
     parm_load();
     spi2_setup();
-	DigiPot_spi3_setup();
-	//ADC_spi3_setup();
+	spi3_setup();
     tim3_setup(); //For general purpose PWM output
     Param::Change(Param::PARAM_LAST);
     DigIo::INV_PWR.Clear();//inverter power off during bootup
@@ -1412,6 +1414,7 @@ extern "C" int main(void)
     s.AddTask(Ms10Task, 10);
     s.AddTask(Ms100Task, 100);
     s.AddTask(Ms200Task, 200);
+	BATMan::BatStart();
 
     if(Param::GetInt(Param::IsaInit)==1) ISA::initialize(shunt_can);//only call this once if a new sensor is fitted.
 

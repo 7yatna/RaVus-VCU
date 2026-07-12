@@ -29,7 +29,6 @@ void SpiADC::Read6Channels()
 	uint16_t Raw[6];
 	uint16_t Val[6];
 	
-	
 	DigIo::ADC_CS.Set();
 	for (volatile int i = 0; i < 3; i++)
     {
@@ -43,7 +42,7 @@ void SpiADC::Read6Channels()
 		Raw[i] = spi_xfer(SPI3, 0x0000);
 		Val[i] = Raw[i] & 0x3FFF;
     }
-		
+	
 	Param::SetInt(Param::CH1, Val[0]);
 	Param::SetInt(Param::CH2, Val[1]);
 	Param::SetInt(Param::CH3, Val[2]);
@@ -51,4 +50,3 @@ void SpiADC::Read6Channels()
 	Param::SetInt(Param::CH5, Val[4]);
 	Param::SetInt(Param::CH6, Val[5]);
 }
-

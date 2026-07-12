@@ -24,6 +24,10 @@
 
 void DigiPot::SetPot1AStep()
 	{	
+		spi_disable(SPI3);
+		spi_init_master(SPI3, SPI_CR1_BAUDRATE_FPCLK_DIV_16, SPI_CR1_CPOL_CLK_TO_0_WHEN_IDLE, SPI_CR1_CPHA_CLK_TRANSITION_2, SPI_CR1_DFF_8BIT, SPI_CR1_MSBFIRST);
+		spi_enable(SPI3);
+		
 		int wip1A = 0;
 		wip1A = utils::change((Param::GetInt(Param::POT1A)), 0, 255, 0, 100);
 		DigIo::POT1_CS.Clear();
@@ -140,4 +144,7 @@ void DigiPot::SetPot4BStep()
 		spi_xfer(SPI3, (Param::GetInt(Param::POT4B)));
 		DigIo::POT4_CS.Set();
 		Param::SetInt(Param::DigiPot4B, wip4B);	
+		spi_disable(SPI3);
+		spi_init_master(SPI3, SPI_CR1_BAUDRATE_FPCLK_DIV_16, SPI_CR1_CPOL_CLK_TO_0_WHEN_IDLE, SPI_CR1_CPHA_CLK_TRANSITION_2, SPI_CR1_DFF_16BIT, SPI_CR1_MSBFIRST);
+		spi_enable(SPI3);
 	}
