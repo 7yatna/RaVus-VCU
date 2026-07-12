@@ -1,5 +1,4 @@
 /obj
 *.hex
 *.bin
-/obj
 *.o
