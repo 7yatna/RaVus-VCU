@@ -77,15 +77,14 @@ void clock_setup(void)
 
 void spi2_setup()   //spi 2 used for M3 BMS
 {
-
-    spi_init_master(SPI2, SPI_CR1_BAUDRATE_FPCLK_DIV_32, SPI_CR1_CPOL_CLK_TO_1_WHEN_IDLE, SPI_CR1_CPHA_CLK_TRANSITION_1, SPI_CR1_DFF_16BIT, SPI_CR1_MSBFIRST);
-    spi_set_standard_mode(SPI2,3);//set mode 0
-    spi_enable_software_slave_management(SPI2);
-    //spi_enable_ss_output(SPI2);
-    spi_set_nss_high(SPI2);
-    gpio_set_mode(GPIOB, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_ALTFN_PUSHPULL, GPIO15 | GPIO13);//MOSI , CLK
-    gpio_set_mode(GPIOB, GPIO_MODE_INPUT, GPIO_CNF_INPUT_FLOAT, GPIO14);//MISO
-    spi_enable(SPI2);
+	gpio_set_mode(GPIOB, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_ALTFN_PUSHPULL, GPIO15 | GPIO13);//MOSI , CLK
+	gpio_set_mode(GPIOB, GPIO_MODE_INPUT, GPIO_CNF_INPUT_FLOAT, GPIO14);//MISO
+    spi_reset(SPI2);
+	spi_init_master(SPI2, SPI_CR1_BAUDRATE_FPCLK_DIV_32, SPI_CR1_CPOL_CLK_TO_1_WHEN_IDLE, SPI_CR1_CPHA_CLK_TRANSITION_1, SPI_CR1_DFF_16BIT, SPI_CR1_MSBFIRST);																				
+	spi_set_standard_mode(SPI2,3);//set mode 3
+	spi_enable_software_slave_management(SPI2);
+	spi_set_nss_high(SPI2);
+	spi_enable(SPI2);
 }
 
 void spi3_setup()   //spi3 used for digi pots (fuel gauge etc)

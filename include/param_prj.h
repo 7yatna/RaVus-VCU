@@ -21,7 +21,7 @@
  */
 
 
-#define VER 0.01.RAM
+#define VER 0.02.RAM
 
 
 
