@@ -109,7 +109,7 @@
     PARAM_ENTRY(CAT_BMS,       BMS_VmaxLimit, "V",     0,      10,     4.2,    93 ) \
     PARAM_ENTRY(CAT_BMS,       BMS_TminLimit, "°C",    -100,   100,    5,      94 ) \
     PARAM_ENTRY(CAT_BMS,       BMS_TmaxLimit, "°C",    -100,   100,    50,     95 ) \
-	PARAM_ENTRY(CAT_BMS,   	   Balance,     ONOFF,     0,      1,      0,     2134) \
+	PARAM_ENTRY(CAT_BMS,   	   Balance,     ONOFF,     0,      1,      0,     2168) \
     PARAM_ENTRY(CAT_HEATER,    Heater,      HTTYPE,    0,      3,      0,      57 ) \
     PARAM_ENTRY(CAT_HEATER,    Control,     HTCTRL,    0,      2,      0,      58 ) \
     PARAM_ENTRY(CAT_HEATER,    HeatPwr,     "W",       0,      6500,   0,      59 ) \
@@ -193,40 +193,40 @@
     VALUE_ENTRY(BMS_IsoMeas,   "mV",                2099 ) \
 	VALUE_ENTRY(BMS_LoopCnt,   "",                	2130 ) \
 	VALUE_ENTRY(BMS_LoopState, "",                	2131 ) \
-	VALUE_ENTRY(BMS_CellMin,   "",                	2133 ) \
-	VALUE_ENTRY(BMS_umin,      "mV",                2135 ) \
-	VALUE_ENTRY(BMS_CellMax,   "",                	2132 ) \
-	VALUE_ENTRY(BMS_umax,      "mV",                2136 ) \
-	VALUE_ENTRY(BMS_uavg,      "mV",                2137 ) \
-	VALUE_ENTRY(BMS_Delta,     "mV",                2138 ) \
-	VALUE_ENTRY(BMS_Present,   "",                  2139 ) \
-	VALUE_ENTRY(BMS_Balancing, "",                  2140 ) \
-	VALUE_ENTRY(BMS_udc, 	   "",                  2141 ) \
-	VALUE_ENTRY(BMS_ChipV1,    "",                  2142 ) \
-	VALUE_ENTRY(BMS_ChipV2,    "",                  2143 ) \
-	VALUE_ENTRY(BMS_ChipV3,    "",                  2144 ) \
-	VALUE_ENTRY(BMS_ChipV4,    "",                  2145 ) \
-	VALUE_ENTRY(BMS_ChipV5,    "",                  2146 ) \
-	VALUE_ENTRY(BMS_ChipV6,    "",                  2147 ) \
-    VALUE_ENTRY(BMS_ChipV7,    "",                  2148 ) \
-	VALUE_ENTRY(BMS_ChipV8,    "",                  2149 ) \
-	VALUE_ENTRY(BMS_TempMax,   "°C",                2150 ) \
-	VALUE_ENTRY(BMS_TempMin,   "°C",                2151 ) \
-	VALUE_ENTRY(BMS_Cellt0_0,  "°C",   				2152 ) \
-    VALUE_ENTRY(BMS_Cellt0_1,  "°C",   				2153 ) \
-    VALUE_ENTRY(BMS_Cellt1_0,  "°C",   				2154 ) \
-    VALUE_ENTRY(BMS_Cellt1_1,  "°C",   				2155 ) \
-    VALUE_ENTRY(BMS_Cellt2_0,  "°C",   				2156 ) \
-    VALUE_ENTRY(BMS_Cellt2_1,  "°C",   				2157 ) \
-    VALUE_ENTRY(BMS_Cellt3_0,  "°C",   				2158 ) \
-    VALUE_ENTRY(BMS_Cellt3_1,  "°C",   				2159 ) \
-    VALUE_ENTRY(BMS_Cellt4_0,  "°C",   				2160 ) \
-    VALUE_ENTRY(BMS_Cellt4_1,  "°C",   				2161 ) \
-    VALUE_ENTRY(BMS_Cellt5_0,  "°C",   				2162 ) \
-    VALUE_ENTRY(BMS_Cellt5_1,  "°C",   				2163 ) \
-    VALUE_ENTRY(BMS_Cellt6_0,  "°C",   				2164 ) \
-    VALUE_ENTRY(BMS_Cellt6_1,  "°C",   				2165 ) \
-    VALUE_ENTRY(BMS_Cellt7_0,  "°C",   				2166 ) \
+	VALUE_ENTRY(BMS_udc, 	   "",                  2132 ) \
+	VALUE_ENTRY(BMS_umin,      "mV",                2133 ) \
+	VALUE_ENTRY(BMS_umax,      "mV",                2134 ) \
+	VALUE_ENTRY(BMS_uavg,      "mV",                2135 ) \
+	VALUE_ENTRY(BMS_Delta,     "mV",                2136 ) \
+	VALUE_ENTRY(BMS_CellMin,   "",                	2137 ) \
+	VALUE_ENTRY(BMS_CellMax,   "",                	2138 ) \
+	VALUE_ENTRY(BMS_TempMin,   "°C",                2139 ) \
+	VALUE_ENTRY(BMS_TempMax,   "°C",                2140 ) \
+	VALUE_ENTRY(BMS_Present,   "",                  2141 ) \
+	VALUE_ENTRY(BMS_Balancing, "",                  2142 ) \
+	VALUE_ENTRY(BMS_ChipV1,    "",                  2143 ) \
+	VALUE_ENTRY(BMS_ChipV2,    "",                  2144 ) \
+	VALUE_ENTRY(BMS_ChipV3,    "",                  2145 ) \
+	VALUE_ENTRY(BMS_ChipV4,    "",                  2146 ) \
+	VALUE_ENTRY(BMS_ChipV5,    "",                  2147 ) \
+	VALUE_ENTRY(BMS_ChipV6,    "",                  2148 ) \
+    VALUE_ENTRY(BMS_ChipV7,    "",                  2149 ) \
+	VALUE_ENTRY(BMS_ChipV8,    "",                  2150 ) \
+	VALUE_ENTRY(BMS_Cellt0_0,  "°C",   				2151 ) \
+    VALUE_ENTRY(BMS_Cellt0_1,  "°C",   				2152 ) \
+    VALUE_ENTRY(BMS_Cellt1_0,  "°C",   				2153 ) \
+    VALUE_ENTRY(BMS_Cellt1_1,  "°C",   				2154 ) \
+    VALUE_ENTRY(BMS_Cellt2_0,  "°C",   				2155 ) \
+    VALUE_ENTRY(BMS_Cellt2_1,  "°C",   				2156 ) \
+    VALUE_ENTRY(BMS_Cellt3_0,  "°C",   				2157 ) \
+    VALUE_ENTRY(BMS_Cellt3_1,  "°C",   				2158 ) \
+    VALUE_ENTRY(BMS_Cellt4_0,  "°C",   				2159 ) \
+    VALUE_ENTRY(BMS_Cellt4_1,  "°C",   				2160 ) \
+    VALUE_ENTRY(BMS_Cellt5_0,  "°C",   				2161 ) \
+    VALUE_ENTRY(BMS_Cellt5_1,  "°C",   				2162 ) \
+    VALUE_ENTRY(BMS_Cellt6_0,  "°C",   				2163 ) \
+    VALUE_ENTRY(BMS_Cellt6_1,  "°C",   				2164 ) \
+    VALUE_ENTRY(BMS_Cellt7_0,  "°C",   				2165 ) \
     VALUE_ENTRY(BMS_Cellt7_1,  "°C",   				2167 ) \
 	VALUE_ENTRY(speed,         "rpm",               2016 ) \
     VALUE_ENTRY(Veh_Speed,     "kph",               2017 ) \
